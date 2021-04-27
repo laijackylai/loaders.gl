@@ -3,8 +3,8 @@ import {OrientedBoundingBox} from '@math.gl/culling';
 import {Ellipsoid} from '@math.gl/geospatial';
 import {CubeGeometry, SphereGeometry} from '@luma.gl/engine';
 import {CompositeLayer, COORDINATE_SYSTEM, log} from '@deck.gl/core';
+import {SimpleMeshLayer} from '@deck.gl/mesh-layers';
 
-import MeshLayer from './mesh-layer/mesh-layer';
 import {COLORED_BY} from './color-map';
 
 const BG_OPACITY = 100;
@@ -106,7 +106,7 @@ export default class ObbLayer extends CompositeLayer {
     const color = colorsMap ? colorsMap.getTileColor(tile, {coloredBy}) : [255, 255, 255];
     const material = {pbrMetallicRoughness: {baseColorFactor: [1, 1, 1, 1]}};
 
-    return new MeshLayer({
+    return new SimpleMeshLayer({
       id: `obb-debug-${tile.id}`,
       mesh: geometry,
       data: SINGLE_DATA,
