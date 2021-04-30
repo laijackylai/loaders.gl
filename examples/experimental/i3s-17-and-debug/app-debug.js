@@ -317,7 +317,10 @@ export default class App extends PureComponent {
       this.setState({coloredTilesMap: {}, selectedTileId: null});
     }
 
-    const {showUVDebugTexture, tileset} = this.state;
+    const {
+      tileset,
+      debugOptions: {showUVDebugTexture}
+    } = this.state;
     if (debugOptions.showUVDebugTexture !== showUVDebugTexture) {
       if (debugOptions.showUVDebugTexture) {
         selectDebugTextureForTileset(tileset, this._uvDebugTexture);
@@ -419,7 +422,6 @@ export default class App extends PureComponent {
         pickable,
         loadTiles,
         autoHighlight: true,
-        isDebugMode: true,
         selectedTileId,
         coloredTilesMap,
         wireframe
@@ -465,6 +467,7 @@ export default class App extends PureComponent {
         onOptionsChange={this._setDebugOptions}
         clearWarnings={this.handleClearWarnings}
         isClearButtonDisabled={isClearButtonDisabled}
+        debugTextureImage={UV_DEBUG_TEXTURE_URL}
       >
         {this._renderStats()}
       </DebugPanel>
