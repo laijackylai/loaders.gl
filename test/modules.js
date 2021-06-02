@@ -2,7 +2,7 @@
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 
-const {_addAliases} = require('@loaders.gl/loader-utils');
+const {_addAliases} = require('../modules/loader-utils/src');
 const ALIASES = require('./aliases');
 _addAliases(ALIASES);
 
