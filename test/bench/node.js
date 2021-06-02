@@ -1,4 +1,4 @@
-require('reify');
+// require('reify');
 require('@loaders.gl/polyfills');
 const {Bench} = require('@probe.gl/bench');
 
